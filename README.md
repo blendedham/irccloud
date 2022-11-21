@@ -2,7 +2,7 @@
 
 A simple Cloudflare Workers application to keep your IRCCloud connection active!
 
-This script is inspired by the version written in go by [osm](https://github.com/osm/icka/), but rewritten from the ground up in Javascript to run on Cloudflare Workers. Unlike that version, this fork can be completely deployed to and configured for Cloudflare Workers from the browser. Cloudflare Workers Secrets are used to store your IRCCloud credentials.
+This script is inspired by the version written in go by [osm](https://github.com/osm/icka/), but rewritten from the ground up in JavaScript to run on Cloudflare Workers. Unlike that version, this fork can be completely deployed to and configured for Cloudflare Workers from the browser. Cloudflare Workers Secrets are used to store your IRCCloud credentials.
 
 This code uses IRCCloud's [publicly-documented RPC API](https://github.com/irccloud/irccloud-tools/wiki).
 While this script generally prevents IRCCloud disconnecting from IRC servers after 120 minutes of inactivity, it does not provide access to any other of the numerous features that are available in the [Pro version of IRCCloud](https://www.irccloud.com/pricing). Please support them if you can!
@@ -24,7 +24,7 @@ Detailed Setup Instructions
 6. Go back out of the editor, then go to Settings > Variables.
 7. Click "Add Variable", enter `email` as the name, and your IRCCloud account email address as the value. IMPORTANT: Click "Encrypt" to protect your credential. Then click "Add Variable" again, and this time enter `password` as the name, and your IRCCloud account password as the value. IMPORTANT: Click "Encrypt" to protect your credential. These values are required to authenticate with IRCCloud and send a signal indicating an active client. While I understand some people might be reluctant to enter their credentials, [Secrets are encrypted and Cloudflare does actually recommend using them for storing authentication keys](https://blog.cloudflare.com/workers-secrets-environment/). Then, click "Save and Deploy".
 8. Go to the Triggers tab, then click "Add Cron Trigger". Select the "Cron" tab and paste in `7 * * * *`. Click "Add Trigger".
-9. You're all set! Optional but recommended: Return the main Workers screen and change your compute setting from "Standard" to "Green".
+9. You're all set! Additional optional but recommended steps: (1) Disable any routes listed from the Triggers screen as they are unneeded. (2) Return the main Workers screen and change your compute setting from "Standard" to "Green".
 
 To update to later versions of this tool simply repeat these steps.
 
