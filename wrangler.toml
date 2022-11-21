@@ -1,0 +1,9 @@
+name = "irc-alive_worker"
+compatibility_date = "2022-11-21"
+
+main = "index.js"
+
+workers_dev = false
+
+[triggers]
+crons = ["7 * * * *"]
